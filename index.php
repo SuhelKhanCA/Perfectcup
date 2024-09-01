@@ -35,6 +35,22 @@
     <div class="brand">The Perfect Cup</div>
     <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
+    <?php
+		
+	if (isset($_GET["logout"])) {
+		
+		if ($_GET["logout"] == "true") { ?>
+			
+			<div class="alert alert-success">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>You have been logged out of the system.</strong>
+			</div>   
+
+	<?php
+		}
+	}
+	?>
+    
     <!-- Navigation -->
     <?php require_once 'nav.php'; ?>
 
