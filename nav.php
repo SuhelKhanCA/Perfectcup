@@ -22,7 +22,7 @@
                         <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="blog.php">Blog</a>
+                        <a href="login.php">Blog</a>
                     </li>
                     <li>
                         <a href="contact.php">Contact</a>
