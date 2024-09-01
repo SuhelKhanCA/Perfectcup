@@ -12,10 +12,15 @@
 
 ![image](https://github.com/user-attachments/assets/52517b1d-ba8b-4e50-b8a2-b4610ba27a0b)
 
+## Login Page
+
+![image](https://github.com/user-attachments/assets/c0f16552-7460-471e-8068-4eedc69aae14)
+
 
 ## Blog Page
 
-![image](https://github.com/user-attachments/assets/2b3c8534-73a1-4f2e-bd48-6d08cc21a4f4)
+![image](https://github.com/user-attachments/assets/f95c2276-bf97-4ef8-851c-90a84fcf8a19)
+
 
 ![image](https://github.com/user-attachments/assets/23463017-d314-4fb1-b832-2afc08720e98)
 
