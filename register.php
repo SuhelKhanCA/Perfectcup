@@ -27,7 +27,64 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#register").click(function(){
+                fname = $("#fname").val();
+                lname = $("#lname").val();
+                email = $("#email").val();
+                password = $("#password").val();
 
+                $.ajax({
+                    type: "POST",
+                    url: "adduser.php",
+                    data : "fname=" + fname + "&lname=" + lname + "&email=" + email + "&pasword=" + password,
+                    success: function(html){
+                        if(html == 'true'){
+                            $("#add_err2").html('<div class="alert alert-success> \
+                                            <strong>Account</strong> processed.\\
+                                            </div>');
+                            window.location.href = "index.php";
+                        } else if(html == 'false'){
+                            $("#add_err2").html('<div class="alert alert-danger> \
+                                            <strong>Email Address</strong> Already in system.\\
+                                            </div>');
+                        } else if(html = 'fname'){
+                            $("#add_err2").html('<div class="alert alert-danger> \
+                                            <strong>First name</strong> is required.\\
+                                            </div>');
+                        } else if(html = 'lname'){
+                            $("#add_err2").html('<div class="alert alert-danger> \
+                                            <strong>Last name</strong> is required.\\
+                                            </div>');
+                        } else if(html = 'eshort'){
+                            $("#add_err2").html('<div class="alert alert-danger> \
+                                            <strong>Email address</strong> is required.\\
+                                            </div>');
+                        } else if(html = 'eformat'){
+                            $("#add_err2").html('<div class="alert alert-danger> \
+                                            <strong>Email Address</strong> is not valid.\\
+                                            </div>');
+                        } else if(html = 'pshort'){
+                            $("#add_err2").html('<div class="alert alert-danger> \
+                                            <strong>Password</strong> must be at leat 4 characters.\\
+                                            </div>');
+                        }else {
+                            $("#add_err2").html('<div class="alert alert-danger> \
+                                            <strong>Error</strong> processing request. Please try again later.\\
+                                            </div>');
+                        }
+                    },
+                    beforeSend: function(){
+                        $("#add_err2").html("Loading...");
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -45,30 +102,30 @@
                     <h2 class="intro-text text-center">Registeration
                         <strong>form</strong>
                     </h2>
+                    <div id="add_err2" ></div>
                     <hr>
                     
                     <form role="form">
                         <div class="row">
                             <div class="form-group col-lg-4">
-                                <label>Name</label>
-                                <input type="text" class="form-control">
+                                <label>First Name</label>
+                                <input type="text" class="form-control" id="fname" name="fname" maxlength="25" >
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Last Name</label>
+                                <input type="text" class="form-control" id="lname" name="lname" maxlength="25">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control">
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Phone Number</label>
-                                <input type="tel" class="form-control">
+                                <input type="email" class="form-control" id="email" name="email" maxlength="25">
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
-                                <label>Message</label>
-                                <textarea class="form-control" rows="6"></textarea>
+                                <label>Password</label>
+                                <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <div class="form-group col-lg-12">
-                                <input type="hidden" name="save" value="contact">
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" class="btn btn-default" id="register">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -89,8 +146,6 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
